@@ -1,5 +1,5 @@
 package com.todo.mapper;
 
-public class TodoMapper {
+public interface TodoMapper {
 
 }
