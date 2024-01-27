@@ -28,5 +28,11 @@ public class TodoController {
         todoMapper.add(todo);
         return "redirect:/";
     }
+	
+	@RequestMapping(value="/update")
+    public String update(Todo todo) {
+        todoMapper.update(todo);
+        return "redirect:/";
+    }
 
 }

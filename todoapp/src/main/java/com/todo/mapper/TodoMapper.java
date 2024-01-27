@@ -11,5 +11,7 @@ public interface TodoMapper {
 	
 	public List<Todo> selectAll();
 
-	public void add(Todo todo); 
+	public void add(Todo todo);
+	
+	public void update(Todo todo);
 }
