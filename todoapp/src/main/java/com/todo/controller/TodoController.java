@@ -13,27 +13,29 @@ import com.todo.mapper.TodoMapper;
 
 @Controller
 public class TodoController {
-	
-	@Autowired
-	TodoMapper todoMapper;
-	
-	@GetMapping(value="/")
-	public String index(Model model) {
-		List<Todo> list = todoMapper.selectAll();
-		model.addAttribute("todos", list);
-		return "index";
-	}
-	
-	@PostMapping(value="/add")
+
+    @Autowired
+    TodoMapper todoMapper;
+
+    @GetMapping(value="/")
+    public String index(Model model) {
+//        List<Todo> list = todoMapper.selectAll();
+        List<Todo> list = todoMapper.selectIncomplete();
+        List<Todo> doneList = todoMapper.selectComplete();
+        model.addAttribute("todos", list);
+        model.addAttribute("doneTodos", doneList);
+        return "index";
+    }
+
+    @PostMapping(value="/add")
     public String add(Todo todo) {
         todoMapper.add(todo);
         return "redirect:/";
     }
-	
-	@PostMapping(value="/update")
+
+    @PostMapping(value="/update")
     public String update(Todo todo) {
         todoMapper.update(todo);
         return "redirect:/";
     }
-
 }
