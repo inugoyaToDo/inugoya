@@ -38,4 +38,10 @@ public class TodoController {
         todoMapper.update(todo);
         return "redirect:/";
     }
+    
+    @PostMapping(value="/delete")
+    public String delete() {
+        todoMapper.delete();
+        return "redirect:/";
+    }
 }

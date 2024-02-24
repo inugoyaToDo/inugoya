@@ -4,9 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.todo.mapper.TodoMapper">
-    <select id="selectAll" resultType="com.todo.entity.Todo">
-        select * from todo_items
-    </select>
+<!--    <select id="selectAll" resultType="com.todo.entity.Todo">-->
+<!--        select * from todo_items-->
+<!--    </select>-->
   
     <select id="selectIncomplete" resultType="com.todo.entity.Todo">
         select * from todo_items where done_flg = '0'
@@ -29,4 +29,8 @@
             done_flg = #{done_flg}
         where id = #{id}
     </update>
+    
+    <delete id="delete" parameterType="com.todo.entity.Todo">
+    	delete from todo_items where done_flg = '1'
+    </delete>
 </mapper>
